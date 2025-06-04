@@ -1,0 +1,39 @@
+TABLE "Profiles" {
+  id SERIAL [PRIMARY KEY]
+  profileName VARCHAR
+  address VARCHAR
+  mobile VARCHAR
+  email VARCHAR
+  rdn VARCHAR
+  currency VARCHAR
+  npwp VARCHAR
+  capital INTEGER
+  UserId INTEGER
+}
+
+TABLE "Users" {
+  id SERIAL [PRIMARY KEY]
+  email VARCHAR
+  password VARCHAR
+  role VARCHAR
+}
+
+TABLE "Stocks" {
+  id SERIAL [PRIMARY KEY]
+  code VARCHAR
+  stockName VARCHAR
+  price INTEGER
+  shares INTEGER
+  ProfileId INTEGER
+  SectorId INTEGER
+}
+
+
+TABLE "Sectors" {
+  id SERIAL [PRIMARY KEY]
+  sectorName VARCHAR  
+}
+
+Ref : Profiles.UserId - Users.id
+Ref : Profiles.id < Stocks.ProfileId
+Ref : Stocks.SectorId > Sectors.id
