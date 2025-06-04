@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Silakan Login</h1>
+
+    <% if (query.error) { %>
+        <p style="color:red"><%= query.error %></p>
+      <% } %>
+
+    <form action="/login" method="post">
+        <label for="title">Email</label><br>
+        <input type="text" name="email" id="email"><br><br>
+
+        <label for="title">Password</label><br>
+        <input type="password" name="password" id="password"><br><br>
+
+        <button type="submit">
+            Submit
+        </button><br><br>
+        <button>
+            <a href="/register">Register</a>
+        </button>
+    </form>
+</body>
+</html>
