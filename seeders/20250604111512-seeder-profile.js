@@ -12,13 +12,13 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-       const stocks = require('../data/stocks.json');
+       const profiles = require('../data/profiles.json');
 
-    stocks.forEach(el => {
+    profiles.forEach(el => {
       el.createdAt = el.updatedAt = new Date();
     })
 
-    await queryInterface.bulkInsert('stocks', stocks, {});
+    await queryInterface.bulkInsert('Profiles', profiles, {});
   },
 
   async down (queryInterface, Sequelize) {
@@ -28,7 +28,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-        await queryInterface.bulkDelete('stocks', null, {});
+    await queryInterface.bulkDelete('Profiles', null, {});
 
   }
 };

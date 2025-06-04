@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('stocks', {
+    await queryInterface.createTable('Stocks', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -21,13 +21,10 @@ module.exports = {
       shares: {
         type: Sequelize.INTEGER
       },
-      transaction_date:{
-        type: Sequelize.DATE
-      },
       ProfileId: {
        type: Sequelize.INTEGER,
       references: {
-        model: 'profiles',
+        model: 'Profiles',
         key: 'id'
       },
       onUpdate: 'cascade',
@@ -36,11 +33,14 @@ module.exports = {
       SectorId: {
       type: Sequelize.INTEGER,
       references: {
-        model: 'sectors',
+        model: 'Sectors',
         key: 'id'
       },
       onUpdate: 'cascade',
       onDelete: 'cascade'
+      },
+      transaction_date: {
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
@@ -53,6 +53,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('stocks');
+    await queryInterface.dropTable('Stocks');
   }
 };

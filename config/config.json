@@ -2,10 +2,9 @@
 "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "PROFOUND",
+    "database": "PORTOPRISM",
     "host": "127.0.0.1",
     "dialect": "postgres"
-
   },
   "test": {
     "username": "root",

@@ -41,3 +41,6 @@ TABLE "Sectors" {
 Ref : Profiles.UserId - Users.id
 Ref : Profiles.id < Stocks.ProfileId
 Ref : Stocks.SectorId > Sectors.id
+
+express session install
+bcrpyt.js
