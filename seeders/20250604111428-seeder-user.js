@@ -12,13 +12,13 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    const users = require('../data/users.json');
+       const users = require('../data/users.json');
 
     users.forEach(el => {
       el.createdAt = el.updatedAt = new Date();
     })
 
-    await queryInterface.bulkInsert('users', users, {});
+    await queryInterface.bulkInsert('Users', users, {});
   },
 
   async down (queryInterface, Sequelize) {
@@ -28,6 +28,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-        await queryInterface.bulkDelete('users', null, {});
+    await queryInterface.bulkDelete('Users', null, {});
+
   }
 };
