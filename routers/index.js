@@ -24,6 +24,7 @@ router.use((req, res, next) => {
   
   })
 
-router.get('/', Controller.X)
+router.get('/', Controller.dashboard)
+router.get('/stocks', Controller.dashboard)
 
 module.exports = router

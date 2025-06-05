@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     Stock.belongsTo(models.Profile, {});
     Stock.belongsTo(models.Sector, {});
     }
+    get formattedDate () {
+      return formatDate(this.transaction_date)
+    } 
+
   }
   Stock.init({
     code: DataTypes.STRING,
