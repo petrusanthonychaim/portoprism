@@ -4,29 +4,29 @@ const UserController = require("../controllers/userController");
 const router = express.Router();
 const session = require('express-session')
 
-// router.get('/login', UserController.loginPage)
-// router.post('/login', UserController.postLogin)
-// router.get('/register', UserController.registerForm)
-// router.post('/register', UserController.postRegister)
+router.get('/login', UserController.loginPage)
+router.post('/login', UserController.postLogin)
+router.get('/register', UserController.registerForm)
+router.post('/register', UserController.postRegister)
 
-// const isLoggedIn = (req, res, next) => {
-//   console.log(req.session)
-//   if(!req.session.userId){
-//     res.redirect(`/login?error=Please+login`)
-//   }else{
-//     next()
-//   }
-//   }
+const isLoggedIn = (req, res, next) => {
+  console.log(req.session)
+  if(!req.session.userId){
+    res.redirect(`/login?error=Please+login`)
+  }else{
+    next()
+  }
+  }
 
 
-// const isManager = (req, res, next) => {
-//   console.log(req.session)
-//   if(!req.session.role){
-//     res.redirect(`/login?error=Please+login`)
-//   }else{
-//     next()
-//   }
-// }
+const isManager = (req, res, next) => {
+  console.log(req.session)
+  if(!req.session.role){
+    res.redirect(`/login?error=Please+login`)
+  }else{
+    next()
+  }
+}
 
 // router.use(isLoggedIn)
 router.get('/', Controller.dashboard)
