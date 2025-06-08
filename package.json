@@ -2,11 +2,9 @@
   "name": "profound_v1",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
+ "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seq": "npx sequelize",
-    "app": "npx nodemon app.js",
-    "build:css": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch"
+    "reset": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate && npx sequelize db:seed:all"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +13,7 @@
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "date-and-time": "^3.6.0",
+    "dayjs": "^1.11.13",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.1",

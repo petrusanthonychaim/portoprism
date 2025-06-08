@@ -1,7 +1,9 @@
 'use strict';
+const { Dayjs } = require('dayjs');
 const {
   Model
 } = require('sequelize');
+const dayjs = require ('dayjs');
 module.exports = (sequelize, DataTypes) => {
   class Stock extends Model {
     /**
@@ -15,13 +17,29 @@ module.exports = (sequelize, DataTypes) => {
     Stock.belongsTo(models.Sector, {});
     }
     get formattedDate () {
-      return formatDate(this.transaction_date)
+      return dayjs(this.transaction_date).format('DD MMM YYYY')
+    } 
+    get chartDate () {
+      return dayjs(this.transaction_date).format('MMM YY')
     } 
 
   }
   Stock.init({
     code: DataTypes.STRING,
-    stockName: DataTypes.STRING,
+    stockName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          args: true,
+          msg: "Title is Required!"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Title is Required!"
+        }
+      }
+    },
     price: DataTypes.INTEGER,
     shares: DataTypes.INTEGER,
     ProfileId: DataTypes.INTEGER,

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profound Client Statement</title>
@@ -99,51 +98,38 @@
     </style>
 </head>
 <body>
-<!-- <%= JSON.stringify(stockByUser)  %> -->
 <br>
-<!-- <%= JSON.stringify(profile)  %> -->
 
-        <section class="mb-4">
-            <h3 class="h5 fw-semibold text-dark mb-3">Total Stock :</h3>
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Stock Code</th>
-                            <th scope="col">Stock Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Share</th>
-                            <th scope="col">Transaction Date</th>
-                            <th scope="col">Delete</th>
-                            <th scope="col">Edit</th>
-                        </tr>
-                    </thead>
-                    <% stockByUser.forEach((el,idx) => { %>
-                    <tbody>
-                            <tr>
-                                <td> <%= idx + 1 %></td>
-                                <td> <%= el.code %></td>
-                                <td> <%= el.stockName %></td>
-                                <td> <%= el.price %></td>
-                                <td> <%= el.shares %></td>
-                                <td> <%= el.transaction_date.toLocaleDateString("id-ID") %></td>
-                               <td>
-                                <button>
-                                    <a href="/stocks/delete/<%= el.id %>"> Delete </a>
-                                </button>
-                                </td>
-                                <td>
-                                <button>
-                                    <a href="/stocks/buy/<%= el.id %>"> Buy </a>
-                                </button>
-                            </td>
-                            </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+<!-- <%= JSON.stringify(id)  %> -->
+
+    <form action="/stocks/add/<%= id %>"  method="post">
+        <label for="code">Stock Code :</label> <br>
+        <input type="text" name="code" id="code"> <br> 
+
+        <label for="stockName"> Stock Name :</label> <br>
+        <input type="text" name="stockName" id="stockName"> <br>
+
+        <label for="price">Price :</label> <br>
+        <input type="number" name="price" id="price"> <br> 
+
+        <label for="shares">Shares :</label> <br>
+        <input type="text" name="shares" id="shares"> <br>
+        <br>
+        <select name="SectorId" id="SectorId">
+            <option value="" selected disabled>Choose Sector</option>
+            <% sectors.forEach(el => { %>
+                <option value="<%= el.id %>"><%= el.sectorName %></option>
+            <% }) %>
+        </select>
+        <br>
+        <br>
+        <button type="submit">
+            Add
+        </button>
+        <br>
+        <br>
+    </form>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -3,7 +3,8 @@ const {
 } = require('../models')
 const session = require('express-session')
 const bcrypt = require('bcryptjs')
-class UserController {
+class UserController { 
+    
     static loginPage(req, res){
         res.render("formLogin", { query: req.query });
     }
@@ -35,6 +36,7 @@ class UserController {
                 const isValidPassword = bcrypt.compareSync(password, user.password);
                 if(isValidPassword){
                     req.session.userId = user.id
+                    // req.session.role = user.role
                     return res.redirect('/')
                 }else{
                     return res.redirect('/login?error=Password%20invalid')

@@ -2,8 +2,8 @@
   {
     "code": "BBCA",
     "stockName": "PT Bank Central Asia Tbk",
-    "price": 9500,
-    "shares": -500,
+    "price": 950,
+    "shares": 500,
     "ProfileId": 2,
     "SectorId": 1,
     "transaction_date": "2024-03-15"
@@ -12,7 +12,7 @@
     "code": "BBRI",
     "stockName": "PT Bank Rakyat Indonesia (Persero) Tbk",
     "price": 5000,
-    "shares": -1000,
+    "shares": 100,
     "ProfileId": 3,
     "SectorId": 1,
     "transaction_date": "2024-02-20"
@@ -30,7 +30,7 @@
     "code": "BBNI",
     "stockName": "PT Bank Negara Indonesia (Persero) Tbk",
     "price": 4800,
-    "shares": -300,
+    "shares": 300,
     "ProfileId": 5,
     "SectorId": 1,
     "transaction_date": "2024-04-01"
@@ -39,7 +39,7 @@
     "code": "TLKM",
     "stockName": "PT Telkom Indonesia (Persero) Tbk",
     "price": 4000,
-    "shares": -800,
+    "shares": 200,
     "ProfileId": 2,
     "SectorId": 1,
     "transaction_date": "2024-03-22"
@@ -57,7 +57,7 @@
     "code": "PTBA",
     "stockName": "PT Bukit Asam Tbk",
     "price": 2500,
-    "shares": -250,
+    "shares": 250,
     "ProfileId": 4,
     "SectorId": 2,
     "transaction_date": "2024-01-25"
@@ -66,7 +66,7 @@
     "code": "ELSA",
     "stockName": "PT Elnusa Tbk",
     "price": 450,
-    "shares": -1000,
+    "shares": 1000,
     "ProfileId": 5,
     "SectorId": 2,
     "transaction_date": "2023-11-18"
@@ -84,7 +84,7 @@
     "code": "PGAS",
     "stockName": "PT Perusahaan Gas Negara Tbk",
     "price": 1300,
-    "shares": -400,
+    "shares": 400,
     "ProfileId": 3,
     "SectorId": 2,
     "transaction_date": "2024-02-14"
@@ -93,7 +93,7 @@
     "code": "ANTM",
     "stockName": "PT Aneka Tambang Tbk",
     "price": 2000,
-    "shares": -200,
+    "shares": 200,
     "ProfileId": 4,
     "SectorId": 3,
     "transaction_date": "2023-10-20"
@@ -111,7 +111,7 @@
     "code": "PSAB",
     "stockName": "PT Jasa Armada Indonesia Tbk",
     "price": 300,
-    "shares": -2000,
+    "shares": 2000,
     "ProfileId": 2,
     "SectorId": 3,
     "transaction_date": "2023-11-01"
@@ -120,7 +120,7 @@
     "code": "TINS",
     "stockName": "PT Timah Tbk",
     "price": 1200,
-    "shares": -300,
+    "shares": 300,
     "ProfileId": 3,
     "SectorId": 3,
     "transaction_date": "2024-01-05"
@@ -129,7 +129,7 @@
     "code": "ASII",
     "stockName": "PT Astra International Tbk",
     "price": 5800,
-    "shares": -150,
+    "shares": 150,
     "ProfileId": 4,
     "SectorId": 4,
     "transaction_date": "2024-02-28"
@@ -138,7 +138,7 @@
     "code": "GOTO",
     "stockName": "PT GoTo Gojek Tokopedia Tbk",
     "price": 150,
-    "shares": -5000,
+    "shares": 5000,
     "ProfileId": 5,
     "SectorId": 4,
     "transaction_date": "2023-12-12"
@@ -156,7 +156,7 @@
     "code": "HMSP",
     "stockName": "PT Hanjaya Mandala Sampoerna Tbk",
     "price": 900,
-    "shares": -500,
+    "shares": 500,
     "ProfileId": 3,
     "SectorId": 4,
     "transaction_date": "2024-01-18"
@@ -165,7 +165,7 @@
     "code": "ICBP",
     "stockName": "PT Indofood CBP Sukses Makmur Tbk",
     "price": 10000,
-    "shares": -100,
+    "shares": 100,
     "ProfileId": 4,
     "SectorId": 4,
     "transaction_date": "2024-03-08"
@@ -183,7 +183,7 @@
     "code": "KLBF",
     "stockName": "PT Kalbe Farma Tbk",
     "price": 1500,
-    "shares": -300,
+    "shares": 300,
     "ProfileId": 2,
     "SectorId": 4,
     "transaction_date": "2024-02-01"
@@ -192,7 +192,7 @@
     "code": "UNTR",
     "stockName": "PT United Tractors Tbk",
     "price": 28000,
-    "shares": -50,
+    "shares": 50,
     "ProfileId": 3,
     "SectorId": 4,
     "transaction_date": "2024-04-05"
@@ -201,7 +201,7 @@
     "code": "ACES",
     "stockName": "PT Ace Hardware Indonesia Tbk",
     "price": 800,
-    "shares": -500,
+    "shares": 500,
     "ProfileId": 4,
     "SectorId": 4,
     "transaction_date": "2023-11-25"
@@ -219,7 +219,7 @@
     "code": "EXCL",
     "stockName": "PT XL Axiata Tbk",
     "price": 2500,
-    "shares": -200,
+    "shares": 200,
     "ProfileId": 2,
     "SectorId": 4,
     "transaction_date": "2024-03-10"
@@ -228,7 +228,7 @@
     "code": "JPFA",
     "stockName": "PT Japfa Comfeed Indonesia Tbk",
     "price": 1300,
-    "shares": -400,
+    "shares": 400,
     "ProfileId": 3,
     "SectorId": 4,
     "transaction_date": "2024-02-07"
@@ -246,7 +246,7 @@
     "code": "MIKA",
     "stockName": "PT Mitra Keluarga Karyasehat Tbk",
     "price": 2900,
-    "shares": -150,
+    "shares": 150,
     "ProfileId": 5,
     "SectorId": 4,
     "transaction_date": "2024-04-15"
@@ -255,7 +255,7 @@
     "code": "TBIG",
     "stockName": "PT Tower Bersama Infrastructure Tbk",
     "price": 2400,
-    "shares": -200,
+    "shares": 200,
     "ProfileId": 2,
     "SectorId": 4,
     "transaction_date": "2024-01-12"
@@ -273,7 +273,7 @@
     "code": "BREN",
     "stockName": "PT Barito Renewables Energy Tbk",
     "price": 6000,
-    "shares": -100,
+    "shares": 100,
     "ProfileId": 4,
     "SectorId": 5,
     "transaction_date": "2024-02-03"
@@ -282,7 +282,7 @@
     "code": "ARKO",
     "stockName": "PT Arkha Jayanti Persada Tbk",
     "price": 120,
-    "shares": -2000,
+    "shares": 2000,
     "ProfileId": 5,
     "SectorId": 5,
     "transaction_date": "2023-11-11"
@@ -291,7 +291,7 @@
     "code": "NCKL",
     "stockName": "PT Trimegah Bangun Persada Tbk (Nickel)",
     "price": 1000,
-    "shares": -500,
+    "shares": 500,
     "ProfileId": 2,
     "SectorId": 5,
     "transaction_date": "2024-01-08"
@@ -309,7 +309,7 @@
     "code": "CUAN",
     "stockName": "PT Pantai Indah Kapuk Dua Tbk",
     "price": 8000,
-    "shares": -50,
+    "shares": 50,
     "ProfileId": 4,
     "SectorId": 5,
     "transaction_date": "2024-02-22"
@@ -318,7 +318,7 @@
     "code": "BNGA",
     "stockName": "PT Bank CIMB Niaga Tbk",
     "price": 1800,
-    "shares": -300,
+    "shares": 300,
     "ProfileId": 5,
     "SectorId": 1,
     "transaction_date": "2023-12-01"
@@ -336,7 +336,7 @@
     "code": "PNBN",
     "stockName": "PT Bank Panin Tbk",
     "price": 1200,
-    "shares": -400,
+    "shares": 400,
     "ProfileId": 3,
     "SectorId": 1,
     "transaction_date": "2024-01-16"
@@ -345,7 +345,7 @@
     "code": "BTPS",
     "stockName": "PT Bank BTPN Syariah Tbk",
     "price": 2800,
-    "shares": -200,
+    "shares": 200,
     "ProfileId": 4,
     "SectorId": 1,
     "transaction_date": "2023-11-09"
@@ -363,7 +363,7 @@
     "code": "AKRA",
     "stockName": "PT AKR Corporindo Tbk",
     "price": 1600,
-    "shares": -300,
+    "shares": 300,
     "ProfileId": 2,
     "SectorId": 2,
     "transaction_date": "2024-02-10"
@@ -372,7 +372,7 @@
     "code": "DOID",
     "stockName": "PT Delta Dunia Makmur Tbk",
     "price": 350,
-    "shares": -1500,
+    "shares": 1500,
     "ProfileId": 3,
     "SectorId": 2,
     "transaction_date": "2023-12-28"
@@ -390,7 +390,7 @@
     "code": "MDKA",
     "stockName": "PT Merdeka Copper Gold Tbk",
     "price": 2700,
-    "shares": -150,
+    "shares": 150,
     "ProfileId": 5,
     "SectorId": 3,
     "transaction_date": "2024-01-20"
@@ -399,7 +399,7 @@
     "code": "HRUM",
     "stockName": "PT Harum Energy Tbk",
     "price": 1400,
-    "shares": -300,
+    "shares": 300,
     "ProfileId": 2,
     "SectorId": 3,
     "transaction_date": "2024-03-02"
@@ -408,7 +408,7 @@
     "code": "WIKA",
     "stockName": "PT Wijaya Karya (Persero) Tbk",
     "price": 600,
-    "shares": -1000,
+    "shares": 1000,
     "ProfileId": 3,
     "SectorId": 4,
     "transaction_date": "2023-11-05"
@@ -417,7 +417,7 @@
     "code": "PTPP",
     "stockName": "PT PP (Persero) Tbk",
     "price": 700,
-    "shares": -800,
+    "shares": 800,
     "ProfileId": 4,
     "SectorId": 4,
     "transaction_date": "2024-02-17"
@@ -435,7 +435,7 @@
     "code": "ADMR",
     "stockName": "PT Adaro Minerals Indonesia Tbk",
     "price": 1700,
-    "shares": -250,
+    "shares": 250,
     "ProfileId": 2,
     "SectorId": 4,
     "transaction_date": "2023-12-10"
@@ -444,7 +444,7 @@
     "code": "ESSA",
     "stockName": "PT Surya Esa Perkasa Tbk",
     "price": 900,
-    "shares": -600,
+    "shares": 600,
     "ProfileId": 3,
     "SectorId": 5,
     "transaction_date": "2024-01-01"

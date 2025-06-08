@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profound Client Statement</title>
@@ -66,28 +67,11 @@
         .align-right {
             text-align: right;
         }
-        .pie-chart-placeholder {
-            min-height: 200px; /* Adjust height as needed for the chart */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f2f2f2; /* Light background for the pie chart area */
-            border-radius: 0.25rem;
-            padding: 15px;
-            margin-bottom: 15px; /* Spacing below the chart */
-            overflow: hidden; /* Keep content contained */
-        }
-        .pie-chart-placeholder img {
-            max-width: 100%;
-            height: auto;
-            display: block; /* Remove extra space below image */
-        }
         .s {
             font-size: x-small;
-            text-st
         }
         .m {
-            font-size: small;
+            font-size:small;
         }
         .l {
             font-size: medium;
@@ -95,29 +79,67 @@
         .xl {
             font-size: xx-large;
         }
+        .chart-container {
+            width: 90%;
+            max-width: 700px;
+            /* === ADD THIS HEIGHT/MIN-HEIGHT === */
+            height: 400px; /* Or min-height: 400px; for flexibility */
+            /* ================================= */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            /* Important: The canvas element within should not have inline styles
+               like 'height' or 'width' if responsive:true and maintainAspectRatio:false are used.
+               Let the parent container dictate the size. */
+        }
     </style>
 </head>
+
 <body>
 <!-- <%= JSON.stringify(stockByUser)  %> -->
-<br>
 <!-- <%= JSON.stringify(profile)  %> -->
 
-<div class="container-fluid statement-container">
-<p style="text-align: end;">Petrus & Rizky</p> 
-<select class="form-select form-select-sm" aria-label=".form-select-sm example" name="users" id="users">
-  <option selected disabled>Client Name</option>
-    <option value="2">Budi Santoso</option>
-    <option value="3">Siti Aminah</option>
-    <option value="4">Joko Susilo</option>
-    <option value="5">Ayu Lestari</option>
-    <option value="6">Chandra Wijaya</option>
-    <option value="7">Dini Putri</option>
-    <option value="8">Eko Saputra</option>
-    <option value="9">Fitri Handayani</option>
-    <option value="10">Guntur Pratama</option>
-</select>
-</div>
+<!-- NAV BAR BS-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"> Home </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page">Welcome "(sumadi surianto)" </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- END NAVBAR -->
 
+<!-- ACTION BAR -->
+<form action="/" method="post">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="ProfileId" id="ProfileId">
+        <% if (!profile.profileName) { %>
+        <option selected value="" disabled>
+         Choose User
+         </option>
+         <% } else { %>
+        <option selected value="<%= profile.id %>" disabled>
+        <%= profile.profileName %>
+         </option> 
+        <% } %>
+        <option value="2">Budi Santoso</option>
+        <option value="3">Siti Aminah</option>
+        <option value="4">Joko Susilo</option>
+        <option value="5">Ayu Lestari</option>
+    </select>
+    <div style="display: flex; justify-self: center; padding-top: 5px;" >
+        <button style="width: 100px;" type="submit" class="btn btn-secondary">Apply</button>
+    </div>
+</form>
+
+<!-- ACTION BAR -->
+</div>
     <div class="container-fluid statement-container">
         <header class="row header-section d-flex align-items-start">
             <div class="col-8">
@@ -146,20 +168,125 @@
             </div>
         </section>
 
+        <h3 class="h5 fw-semibold text-dark mb-3">Chart</h3>
         <section class="mb-4">
-            <h3 class="h5 fw-semibold text-dark mb-3">Chart</h3>
-            <div class="chart-placeholder">
-                <img src="/images/investment_performance_chart.png" class="img-fluid" alt="Investment Performance Chart">
+            <div>
+                <% if (stockByUser.length === 0) { %>
+                <p class="mb-0 text-muted l">please select user</p>
+                <% } else { %>
+                <div class="chart-container" style="display:flex; justify-content: center;">
+                    <canvas id="myChart"></canvas>
                 </div>
-        </section>
 
+                <!-- SCRIPT CHART -->
+                <script>
+                // Your data remains the same. For line charts, Chart.js can also handle
+                // data directly as an array of y-values if you want labels for x-axis,
+                // but {x,y} objects are perfect for numerical x-axes or when x-values are not sequential.
+
+                // var xyValues = [
+                // {x:50, y:7},
+                // {x:60, y:8},
+                // ];
+
+                const stockByUserFromController = <%- JSON.stringify(stockByUser) %>;
+
+                const chart = []
+                let id = 0
+                let totalStock = 0
+                stockByUserFromController.forEach((el) => {
+                total = el.price * el.shares
+                totalStock += total
+                id ++
+                chart.push ({x:id, y:totalStock})
+                });
+
+                var xyValues = chart
+
+                // Get the canvas element context
+                const ctx = document.getElementById('myChart');
+
+                // Ensure the canvas element exists before trying to create the chart
+                if (ctx) {
+                    new Chart(ctx, {
+                        type: "line", // <--- THIS IS THE MAIN CHANGE: from "scatter" to "line"
+                        data: {
+                            datasets: [{
+                                label: 'Trend Line', // Label for the dataset, appears in legend
+                                data: xyValues,
+                                borderColor: 'rgb(75, 192, 192)', // Line color
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Area under the line color (optional)
+                                fill: true, // Fill the area under the line
+                                tension: 0.1, // Smoothness of the line (0 = straight, 1 = very curved)
+                                pointRadius: 5, // Radius of data points
+                                pointBackgroundColor: 'rgb(75, 192, 192)', // Color of data points
+                                pointBorderColor: '#fff', // Border color of data points
+                                pointHoverRadius: 7, // Radius on hover
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    type: 'linear', // Keep as linear for numerical x-axis
+                                    min: 1,
+                                    max: 18,
+                                    title: {
+                                        display: true,
+                                        text: 'X-axis Value'
+                                    }
+                                },
+                                y: {
+                                    type: 'linear', // Keep as linear for numerical y-axis
+                                    min: 0,
+                                    max: 9000000,
+                                    title: {
+                                        display: true,
+                                        text: ''
+                                    },
+                                    ticks: {
+                                            callback: function(value, index, values) {
+                                            return new Intl.NumberFormat('id-ID', { maximumFractionDigits: 0 }).format(value);
+                                        },
+                                            stepSize: 1000000, // This is the core setting for fixed intervals
+                                            autoSkip: false, // <--- IMPORTANT: Disable auto-skipping of labels
+                                        }
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: true, // Typically, legends are useful for line charts, so let's display it
+                                    position: 'top',
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            // Customize tooltip to show X and Y values
+                                            return `X: ${context.parsed.x}, Y: ${context.parsed.y}`;
+                                        }
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Stock'
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    console.error("Canvas element with ID 'myChart' not found.");
+                }
+                </script>
+                <% } %>
+            </div>    
+        </section>
+         
         <section class="mb-4">
             <h3 class="h5 fw-semibold text-dark mb-3">Total Stock :  </h3> 
-            <button type="button" onclick="'/stocks';" class="btn btn-primary">Primary
-                Edit Stock
-            </button>
-            <input type="button"  value="Go to Google" />
-
+            <button type="submit" class="btn btn-primary"><a style="color: #dee2e6;" href="/stocks/<%= profile.id %>">Edit Stock</a></button>
+            <button type="submit" class="btn btn-primary"><a style="color: #dee2e6;" href="/stocks/add/<%= profile.id %>"> Buy Stock</a></button>
+            <br><br>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -173,57 +300,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% stockByUser.forEach((el,idx) => { %>
-                            <tr>
-                                <td> <%= idx + 1 %></td>
-                                <td> <%= el.code %></td>
-                                <td> <%= el.stockName %></td>
-                                <td> <%= el.price %></td>
-                                <td> <%= el.shares %></td>
-                                <td> <%= el.transaction_date.toLocaleDateString("id-ID") %></td>
-                            </tr>
-                        <% }) %>
+                        <% if (stockByUser.length === 0) { %>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <% } else { %>
+                            <% stockByUser.forEach((el,idx) => { %>
+                                <tr>
+                                    <td> <%= idx + 1 %></td>
+                                    <td> <%= el.code %></td>
+                                    <td> <%= el.stockName %></td>
+                                    <td> <%= el.price %></td>
+                                    <td> <%= el.shares %></td>
+                                    <td> <%= el.formattedDate%></td>
+                                </tr>
+                                <% }) %>
+                        <% } %>
                     </tbody>
                 </table>
             </div>
 
             <div class="summary-block">
-                <p class="mb-1">
-                    <span class="fw-semibold">\% Sharing Commission</span>
-                    <span class="ms-5 align-right" fund.sharingCommission.toLocaleString('id-ID') </span>
-                </p>
-                <p class="mb-1">
-                    <span class="fw-semibold">Interim 2023</span>
-                    <span class="ms-5 align-right" fund.interim2023.toLocaleString('id-ID') </span>
-                </p>
-                <p class="total-line">
-                    <span class="fw-bold">Net Equity After Interim</span>
-                    <span class="ms-4 align-right" fund.netEquityAfterInterim.toLocaleString('id-ID') </span>
-                </p>
+                <p class="total-line"></p>
             </div>
         </section>
-
-        <section class="row">
-            <div class="col-md-6 mb-3 mb-md-0">
-                <h3 class="h5 fw-semibold text-dark mb-3">Fund Composition</h3>
-                <div class="pie-chart-placeholder">
-                    <img src="/images/fund_composition_pie_chart.png" class="img-fluid" alt="Fund Composition Pie Chart">
-                    </div>
-                <div class="d-flex align-items-center mt-2">
-                    <div style="width: 15px; height: 15px; background-color: #007bff; margin-right: 8px;"></div> <span class="text-muted">1</span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <h3 class="h5 fw-semibold text-dark mb-3">To the clients of Profound Capital:</h3>
-                <p class="text-muted mb-3">We are honored by your trust in us to manage a portion of your asset, so we can achieve <span class="text-success-gain" fund.growthRate % growth rate</span>.</p>
-                <p class="text-muted mb-3" fund.portfolioPositionsDetail </p>
-                <p class="fst-italic text-muted mb-3">Successful Investing is about managing risk, not avoiding it.</p>
-                <p class="mt-4 mb-0 text-muted">Sincerely</p>
-                <p class="fw-semibold text-dark" statement.signatory </p>
-            </div>
-        </section>
-
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

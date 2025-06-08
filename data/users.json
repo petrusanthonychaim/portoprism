@@ -23,30 +23,5 @@
     "email": "ayu.l@example.com",
     "password": "test12345",
     "role": "user"
-  },
-  {
-    "email": "chandra.w@example.com",
-    "password": "test12345",
-    "role": "user"
-  },
-  {
-    "email": "dini.p@example.com",
-    "password": "$2b$10$abcdefghijklmnopqrstuvwxyz1234556677.",
-    "role": "user"
-  },
-  {
-    "email": "eko.s@example.com",
-    "password": "test12345",
-    "role": "user"
-  },
-  {
-    "email": "fitri.h@example.com",
-    "password": "test12345",
-    "role": "user"
-  },
-  {
-    "email": "guntur.p@example.com",
-    "password": "test12345",
-    "role": "user"
   }
 ]
